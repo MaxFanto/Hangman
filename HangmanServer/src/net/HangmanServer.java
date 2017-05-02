@@ -5,6 +5,10 @@
  */
 package net;
 
+import hangman.Hangman;
+import hangman.Player;
+import java.io.IOException;
+
 /**
  *
  * @author Claudio Cusano <claudio.cusano@unipv.it>
@@ -14,8 +18,10 @@ public class HangmanServer {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws IOException {
+        Hangman game = new Hangman();
+        Player player = new NetPlayer();
+        game.playGame(player);
     }
     
 }

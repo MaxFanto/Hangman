@@ -24,9 +24,9 @@ public class LocalGame {
      * @param args ignored
      */
     public static void main(String[] args) {
-        Hangman game = new Hangman();
-        Player player = new LocalPlayer();
-        // Player player = new ArtificialPlayer();
-        game.playGame(player);
+        //Hangman game = new Hangman();
+        //Player player = new LocalPlayer();
+//        Player player = new ArtificialPlayer();
+        //game.playGame(player);
     }
 }
