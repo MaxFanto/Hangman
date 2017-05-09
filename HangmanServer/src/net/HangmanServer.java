@@ -15,9 +15,6 @@ import java.io.IOException;
  */
 public class HangmanServer {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws IOException {
         Hangman game = new Hangman();
         Player player = new NetPlayer();

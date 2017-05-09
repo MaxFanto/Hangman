@@ -38,17 +38,15 @@ public class NetPlayer extends Player {
         out = new PrintWriter(clientSocket.getOutputStream(), true);
     }
     
-    
-
     @Override
     public char chooseLetter(Game game) {
         char lettera = 0;
         try {
             lettera = in.readLine().charAt(0);
             System.out.println(lettera);
-            if (game.getResult() == GameResult.FAILED) {
-                out.println("finish");
-            }
+//            if (game.getResult() == GameResult.FAILED) {
+//                out.println("finish");
+//            }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -61,15 +59,25 @@ public class NetPlayer extends Player {
             case FAILED:
                 printBanner("Hai perso!  La parola da indovinare era '" +
                             game.getSecretWord() + "'");
+                
+                out.println("Hai perso!  La parola da indovinare era '" +
+                            game.getSecretWord() + "'");
                 break;
             case SOLVED:
                 printBanner("Hai indovinato!   (" + game.getSecretWord() + ")");
+                
+                out.println("Hai indovinato!   (" + game.getSecretWord() + ")");
                 break;
             case OPEN:
                 int rem = Game.MAX_FAILED_ATTEMPTS - game.countFailedAttempts();
                 System.out.print("\n" + rem + " tentativi rimasti\n");
                 System.out.println(this.gameRepresentation(game));
                 System.out.println(game.getKnownLetters());
+                
+                out.println("\n" + rem + " tentativi rimasti\n");
+                out.println(this.gameRepresentation(game));
+                out.println(game.getKnownLetters());
+                
                 break;
         }
     }
